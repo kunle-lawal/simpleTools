@@ -12,14 +12,18 @@
             @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i&display=swap');
 
             .countdown_container {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            text-align: center;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
             }
 
             .countdown {
@@ -61,6 +65,7 @@
         </style>
         <div class="countdown_container" id="countdown_container">
             <div class="countdown" id="countdown">
+                <h2 class="title">Countdown to something</h2>
                 <div class="timer" id="timer">
                     <div class="days time">
                         <div id="days" class="value">0</div>
@@ -104,7 +109,7 @@
                         document.getElementById('days').innerHTML = days;
                     }, 1000);
                 })();
-            </script>
+            </script> 
         </div>
     </div>
 </body>
