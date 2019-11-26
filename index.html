@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Count Down</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main_container" id="main_container">
@@ -12,55 +12,56 @@
             @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i&display=swap');
 
             .countdown_container {
-                max-width: 500px;
-                padding: 40px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
             }
 
             .countdown {
-                width:100%;
+            width:100%;
             }
 
             h2.title {
-                margin: 0 0 10px 0;
-                text-align: left;
-                font-weight: 500;
-                font-family: 'Open Sans', sans-serif;
-                color: #dc6363;
+            margin: 0 0 10px 0;
+            /* text-align: left; */
+            display: inline-block;
+            font-weight: 500;
+            font-family: 'Open Sans', sans-serif;
+            color: #dc6363;
             }
 
             .timer {
-                display: inline-block;
-                width:100%;
+            display: inline-block;
+            width:100%;
             }
 
             .time {
-                padding: 10px;
-                font-family: 'Open Sans', sans-serif;
-                border: 2px solid #dc6363;
-                color: #dc6363;
-                border-radius: 0px;
-                width: 13%;
-                display: inline-block;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            border: 2px solid #dc6363;
+            color: #dc6363;
+            border-radius: 0px;
+            width: 13%;
+            display: inline-block;
             }
 
             .time>.value {
-                font-size: 30px;
-                font-weight: 100;
-            }
-
-            @media (max-width: 700px) {
-                .time>.value {
-                    font-size: 4vh;
-                }
+            font-size: 30px;
+            font-weight: 100;
             }
 
             .time>.type {
-                font-weight: 600;
+            font-weight: 600;
             }
         </style>
         <div class="countdown_container" id="countdown_container">
             <div class="countdown" id="countdown">
-                <h2 class="title">Countdown</h2>
+                <h2 class="title">Countdown to something</h2>
                 <div class="timer" id="timer">
                     <div class="days time">
                         <div id="days" class="value">0</div>
