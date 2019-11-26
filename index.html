@@ -1,1 +1,109 @@
-Hello world
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Count Down</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <div class="main_container" id="main_container">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i&display=swap');
+
+            .countdown_container {
+                max-width: 500px;
+                padding: 40px;
+            }
+
+            .countdown {
+                width:100%;
+            }
+
+            h2.title {
+                margin: 0 0 10px 0;
+                text-align: left;
+                font-weight: 500;
+                font-family: 'Open Sans', sans-serif;
+                color: #dc6363;
+            }
+
+            .timer {
+                display: inline-block;
+                width:100%;
+            }
+
+            .time {
+                padding: 10px;
+                font-family: 'Open Sans', sans-serif;
+                border: 2px solid #dc6363;
+                color: #dc6363;
+                border-radius: 0px;
+                width: 13%;
+                display: inline-block;
+            }
+
+            .time>.value {
+                font-size: 30px;
+                font-weight: 100;
+            }
+
+            @media (max-width: 700px) {
+                .time>.value {
+                    font-size: 4vh;
+                }
+            }
+
+            .time>.type {
+                font-weight: 600;
+            }
+        </style>
+        <div class="countdown_container" id="countdown_container">
+            <div class="countdown" id="countdown">
+                <h2 class="title">Countdown to something</h2>
+                <div class="timer" id="timer">
+                    <div class="days time">
+                        <div id="days" class="value">0</div>
+                        <div class="type">days</div>
+                    </div>
+                    <div class="hours time">
+                        <div id="hours" class="value">0</div>
+                        <div class="type">hours</div>
+                    </div>
+                    <div class="minutes time">
+                        <div id="minutes" class="value">0</div>
+                        <div class="type">minutes</div>
+                    </div>
+                    <div class="seconds time">
+                        <div id="seconds" class="value">0</div>
+                        <div class="type">seconds</div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                (function() {
+                    let countDownDateString = '';
+                    let countDownDate = new Date("2019-12-06").getTime();
+
+                    window.setInterval(() => {
+                        var now = new Date().getTime();
+
+                        var timeLeft = countDownDate - now;
+                        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));;
+
+                        // console.log(secondsElement);
+
+                        document.getElementById(countDownDateString+'seconds').innerHTML = seconds;
+                        document.getElementById(countDownDateString+'minutes').innerHTML = minutes;
+                        document.getElementById(countDownDateString+'hours').innerHTML = hours;
+                        document.getElementById(countDownDateString+'days').innerHTML = days;
+                    }, 1000);
+                })();
+            </script>
+        </div>
+    </div>
+</body>
+</html>
