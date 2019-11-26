@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/wingcss" />
+    <title>EmbedCalender</title>
+</head>
+
+<body id="body">
+    <div id="calander">
+        
+        <div id="page_container">
+            <style>
+                * {
+                    padding: 0;
+                }
+            
+                #page_container{
+                    width: 100vw;
+                    height: 100vh;
+                    text-align: center;
+                }
+            
+                #cal_container {
+                    display: inline-block;
+                    text-align: center;
+                    box-shadow: 0px 3px 20px #dedede;
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    display: grid;
+                    grid-template-rows: 1fr 4fr;
+                    padding-bottom: 60px;
+                }
+            
+                .cal_items {
+                    border: 1px solid blue;
+                }
+            
+                #month {
+                    color: #222;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 30px;
+            
+                    background-color: #e65151;
+                    color: white;
+                    font-weight: 100;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+            
+            
+                #days {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                    gap: 0px;
+                }
+            
+                .day {
+                    list-style: none;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    /* color: #e65151; */
+                    font-weight: 700;
+                }
+            
+                .day:nth-child(7n) {
+                    /* border-right:1px solid #d0cece; */
+                }
+            
+                .cal_content {
+                    padding: 20px;
+                }
+            
+                #dates {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                    gap: 0px;
+                    height: 100%;
+                }
+            
+            
+                .date {
+                    /* border:1px solid red; */
+                    list-style-type: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 500;
+                }
+            
+                .date:nth-child(7n+1) {
+                    color: #e65151;
+                }
+            
+                .date:nth-child(7n) {
+                    /* border-right:1px solid #d0cece; */
+                    /* border-bottom:1px solid #d0cece; */
+                }
+            
+                .date:nth-child(n+36) {
+                    /* border-bottom:1px solid #d0cece; */
+                }
+            
+            
+                .date:hover {
+                    background-color: #5174e6;
+                    color: white;
+                    cursor: pointer;
+                    opacity: 0.9;
+                }
+            
+                .current_date {
+                    background-color: #e65151;
+                    color: white;
+                }
+            
+            
+                #content {
+                    height: 600px;
+                    background-color: #cccccc;
+                }
+            
+            
+                @media screen and (max-width: 780px) {
+                    .date {
+                        width: 60px;
+                        height: 60px;
+                    }
+            
+                    .day {
+                        font-size: 12px;
+                        width: 60px;
+                    }
+            
+                    #dates {
+                        width: 590px;
+                    }
+            
+                    #month {
+                        text-align: center;
+                        width: 650px;
+                    }
+                }
+            </style>
+            <div id="cal_container">
+                <h3 id="month"></h3>
+                <div class="cal_content">
+                    <ul id="days">
+                        <li class="day" style="color:#e65151;">Sun</li>
+                        <li class="day">Mon</li>
+                        <li class="day">Tue</li>
+                        <li class="day">Wed</li>
+                        <li class="day">Thu</li>
+                        <li class="day">Fri</li>
+                        <li class="day">Sat</li>
+                    </ul>
+                    
+                    <ul id="dates">
+                        <div id="date0" class="date">0</div>
+                        <li id="date1" class="date">0</li>
+                        <li id="date2" class="date">0</li>
+                        <li id="date3" class="date">0</li>
+                        <li id="date4" class="date">0</li>
+                        <li id="date5" class="date">0</li>
+                        <li id="date6" class="date"></li>
+                        <li id="date7" class="date"></li>
+                        <li id="date8" class="date"></li>
+                        <li id="date9" class="date"></li>
+                        <li id="date10" class="date"></li>
+                        <li id="date11" class="date"></li>
+                        <li id="date12" class="date"></li>
+                        <li id="date13" class="date"></li>
+                        <li id="date14" class="date"></li>
+                        <li id="date15" class="date"></li>
+                        <li id="date16" class="date"></li>
+                        <li id="date17" class="date"></li>
+                        <li id="date18" class="date"></li>
+                        <li id="date19" class="date"></li>
+                        <li id="date20" class="date"></li>
+                        <li id="date21" class="date"></li>
+                        <li id="date22" class="date"></li>
+                        <li id="date23" class="date"></li>
+                        <li id="date24" class="date"></li>
+                        <li id="date25" class="date"></li>
+                        <li id="date26" class="date"></li>
+                        <li id="date27" class="date"></li>
+                        <li id="date28" class="date"></li>
+                        <li id="date29" class="date"></li>
+                        <li id="date30" class="date"></li>
+                        <li id="date31" class="date"></li>
+                        <li id="date32" class="date"></li>
+                        <li id="date33" class="date"></li>
+                        <li id="date34" class="date"></li>
+                        <li id="date35" class="date"></li>
+                        <li id="date36" class="date"></li>
+                        <li id="date37" class="date"></li>
+                        <li id="date38" class="date"></li>
+                        <li id="date39" class="date"></li>
+                        <li id="date40" class="date"></li>
+                        <li id="date41" class="date"></li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                (function () {
+                    function GID(id) {
+                        return document.getElementById(id);
+                    }
+
+                    var months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                    //Calander 
+                    var d = new Date();
+                    var day = d.getDay();
+                    var currentDate = d.getDate();
+                    var month = d.getUTCMonth();
+                    var year = d.getUTCFullYear();
+                    console.log(day, currentDate, month, year)
+
+                    function get_start_day() {
+                        var startDate = day;
+                        // currentDate = 31;
+                        // startDate = 2;
+                        for (var i = 0; i < (currentDate - 1); i++) {
+                            startDate--;
+                            if (startDate === 0 && i < (currentDate - 2)) {
+                                startDate = 7;
+                            }
+                        }
+                        return startDate;
+                    }
+
+                    function get_end_day(month) {
+                        if (month == 1) {
+                            end_day = (year % 4 === 0) ? 29 : 28;
+                            return end_day;
+                        } else if (month == 3 || month == 5 || month == 8 || month == 10) {
+                            end_day = 30;
+                            return end_day;
+                        } else {
+                            end_day = 31;
+                            return end_day;
+                        }
+                    }
+
+                    var start_day = get_start_day();
+                    var end_day = get_end_day(month);
+
+                    function clear_bottom(end_day) {
+                        var n = 0;
+                        for (var j = (end_day + start_day); j <= 41; j++) {
+                            n++;
+                            //GID("date" + j).innerHTML = j + 1;
+                            if (n > 7) {
+                                GID("date" + (j)).style.display = "none";
+                            } else {
+                                GID("date" + (j)).innerHTML = n;
+                                GID("date" + (j)).style.opacity = "0.4";
+                            }
+                            GID("date" + (j)).style.cursor = "auto";
+                        }
+                    }
+
+                    function generate_cal(end_day) {
+                        // clear_top();
+                        let startOffset = 7 - start_day;
+                        let prevEndDate = get_end_day(month - 1);
+                        console.log(start_day);
+
+                        for (var i = 0; i <= 35; i++) {
+                            // console.log(i);
+                            if (i >= start_day) {
+                                GID("date" + (i)).innerHTML = (i - start_day) + 1;
+                            } else {
+                                GID("date" + (i)).innerHTML = prevEndDate - (start_day - 1) + i
+                                GID('date' + (i)).style.opacity = '0.4';
+
+                            }
+                        }
+                        GID('date' + (currentDate + (start_day - 1))).style.backgroundColor = '#5174e6';
+                        GID('date' + (currentDate + (start_day - 1))).style.color = '#fff';
+                        clear_bottom(end_day);
+                    }
+
+                    function set_Date(date, month, year) {
+                        GID("month").innerHTML = months[month] + " " + year;
+                        // GID("year").innerHTML = year;
+                    }
+
+                    generate_cal(get_end_day(month));
+                    set_Date(day, month, year);
+                }());
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
