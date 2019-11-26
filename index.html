@@ -83,8 +83,10 @@
             </div>
             <script>
                 (function() {
-                    let countDownDateString = '';
-                    let countDownDate = new Date("2019-12-06").getTime();
+                    const myLocation = window.location.href
+                    var params = myLocation.split("?");
+                    let countDownDateString = params[1] ? params[1] : '2020-1-1';
+                    let countDownDate = new Date(countDownDateString).getTime();
 
                     window.setInterval(() => {
                         var now = new Date().getTime();
@@ -97,10 +99,10 @@
 
                         // console.log(secondsElement);
 
-                        document.getElementById(countDownDateString+'seconds').innerHTML = seconds;
-                        document.getElementById(countDownDateString+'minutes').innerHTML = minutes;
-                        document.getElementById(countDownDateString+'hours').innerHTML = hours;
-                        document.getElementById(countDownDateString+'days').innerHTML = days;
+                        document.getElementById('seconds').innerHTML = seconds;
+                        document.getElementById('minutes').innerHTML = minutes;
+                        document.getElementById('hours').innerHTML = hours;
+                        document.getElementById('days').innerHTML = days;
                     }, 1000);
                 })();
             </script>
